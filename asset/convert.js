@@ -11,9 +11,10 @@ function copyToClipboard(value) {
 
 document.addEventListener("DOMContentLoaded", function(){
   const textarea_input_text = document.getElementById("input_text")
-  const btn_submit = document.getElementById("button_copy")
+  const btn_convert = document.getElementById("button_copy")
+  const btn_clear = document.getElementById("button_clear")
 
-  btn_submit.addEventListener("click", e => {
+  btn_convert.addEventListener("click", e => {
     let input_text = textarea_input_text.value
     if (input_text.match(re_swarm)){
       let list_match = input_text.match(re_swarm)
@@ -22,9 +23,15 @@ document.addEventListener("DOMContentLoaded", function(){
       let venue = list_match[3]
 
       let output_text = `I'm at ${venue} (${city})\n${url}`
-      navigator.clipboard.writeText(output_text)
+      textarea_input_text.value = output_text
 
-      btn_submit.value = "Copied!!"
+      navigator.clipboard.writeText(textarea_input_text.value)
+      btn_convert.value = "Copy to Clipboard (Copied)"
     }
+  })
+
+  btn_clear.addEventListener("click", e => {
+    textarea_input_text.value = ""
+    btn_convert.value = "Convert & Copy to Clipboard"
   })
 })
