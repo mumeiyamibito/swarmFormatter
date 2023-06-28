@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #ff8c1e;
+}
+body h1 {
+  color: #ffffff;
+}
+body div#input textarea {
+  width: 90%;
+}
+body div#operation {
+  width: 90%;
+  text-align: center;
+}
+body div#operation input#button_copy {
+  width: 58%;
+  height: 3em;
+  font-weight: bold;
+}
+body div#operation input#button_clear {
+  width: 40%;
+  height: 3em;
+}
